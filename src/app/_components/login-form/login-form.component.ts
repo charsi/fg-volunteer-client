@@ -33,13 +33,12 @@ export class LoginFormComponent implements OnInit {
           this.error = '';
           //this.router.navigate(['/']);
           this.alertService.success('Success', true);
-      } else {
-          this.alertService.error('Username or password is incorrect', true);
-          this.loading = false;
-      }
-    },(error)=>{
-      this.alertService.error('Username or password is incorrect', true);
-      this.loading = false;
-    });
+      } else this.showBadPasswordError();
+    },(error)=>this.showBadPasswordError());
+  }
+
+  private showBadPasswordError():void{
+    this.alertService.error('Username or password is incorrect', true);
+    this.loading = false;
   }
 }

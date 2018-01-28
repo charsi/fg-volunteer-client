@@ -1,4 +1,10 @@
 header{
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+header > h1{
+  display:inline
 }

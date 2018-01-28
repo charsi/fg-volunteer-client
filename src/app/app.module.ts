@@ -8,12 +8,18 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
 import { HeaderComponent } from './_components/header/header.component';
+import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { LoginFormComponent } from './_components/login-form/login-form.component';
+import { ShiftsComponent } from './_components/shifts/shifts.component';
+
 import { AlertComponent } from './_directives/alert.component';
 import { AlertService } from './_services/alert.service';
+
 import { AuthService } from './_services/auth.service';
+
 import { MyHttpInterceptor } from './my-http-interceptor';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +27,9 @@ import { MyHttpInterceptor } from './my-http-interceptor';
     HeaderComponent,
     FooterComponent,
     LoginFormComponent,
-    AlertComponent
+    AlertComponent,
+    ShiftsComponent,
+    NavbarComponent
   ],
   imports: [
     routing,

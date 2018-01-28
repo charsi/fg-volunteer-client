@@ -50,7 +50,6 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // get the token
     const token = this.getToken();
-    
     if (token){
       return true;
     } else {
