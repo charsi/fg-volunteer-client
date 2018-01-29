@@ -8,7 +8,11 @@ import { MyshiftsComponent } from './_components/myshifts/myshifts.component';
 import { SettingsComponent } from './_components/settings/settings.component';
 
 const appRoutes: Routes = [
-    { path: 'shifts', component: ShiftsComponent },
+    { path: 'shifts', redirectTo: 'shifts/dismantle' },
+    { path: 'shifts/dismantle', component: ShiftsComponent },
+    { path: 'shifts/test', component: ShiftsComponent },
+    { path: 'shifts/build', component: ShiftsComponent },
+    { path: 'shifts/clean', component: ShiftsComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'myshifts', component: MyshiftsComponent },
