@@ -11,6 +11,7 @@ import { AlertService } from './_services/alert.service';
 
 import { AuthService } from './_services/auth.service';
 import { UserService } from './_services/user.service';
+import { ShiftService } from './_services/shift.service';
 
 import { MyHttpInterceptor } from './my-http-interceptor';
 
@@ -40,6 +41,7 @@ import { ProfileComponent } from './_components/profile/profile.component';
     AlertService,
     AuthService,
     UserService,
+    ShiftService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MyHttpInterceptor,
