@@ -30,7 +30,7 @@ export class LoginFormComponent implements OnInit {
       if (result==true) {
           this.loading = false;
           //this.router.navigate(['/']);
-          this.alertService.success('Success', true);
+          this.alertService.success('You have been logged in.', true);
           this.router.navigate(['shifts']);
       } else this.showBadPasswordError();
     },(error)=>this.showBadPasswordError());

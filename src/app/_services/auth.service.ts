@@ -22,9 +22,9 @@ export class AuthService {
       // login successful if there's a jwt token in the response
       if (res && res.id) {
         console.log(res);
-        let token = res.id ;
-        let id = res.userId ;
-        console.log("ee ");
+        let token = res.id;
+        let id = res.userId;
+        let firstName = res.firstName;
         this.token = token;
         // store username and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token, id:id }));
@@ -41,10 +41,7 @@ export class AuthService {
   public logout() {
     const token = this.getToken();
     return this.http.post<any>('http://localhost:3000/api/v1/users/logout', {})
-    .map((response) => {
-      console.log('-------------------');
-      console.log(response);
-      // remove user from local storage to log user out
+    .map(() => {
       localStorage.removeItem('currentUser');
       console.log('token deleted');
     })

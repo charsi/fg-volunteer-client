@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
-
+import { AlertService } from '../../_services/alert.service';
 
 @Component({
   moduleId: module.id,
@@ -10,14 +10,16 @@ import { AuthService } from '../../_services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
+
   }
 
   public logoutee() {
-    this.auth.logout().subscribe((ee) => { 
-      console.log(ee); 
+    this.auth.logout().subscribe(()=>{
+      this.alertService.warning('You have been logged out.', true);
     });    
   }
 }

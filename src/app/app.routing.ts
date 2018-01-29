@@ -8,10 +8,10 @@ import { LoginFormComponent } from './_components/login-form/login-form.componen
 const appRoutes: Routes = [
     { path: 'shifts', component: ShiftsComponent },
     { path: 'profile', component: ProfileComponent },
+    { path: 'login', component: LoginFormComponent },
     // otherwise redirect to home
-    //{ path: '**', redirectTo: '' }
-    { path: 'login', component: LoginFormComponent }
-    { path: '**', component: LoginFormComponent }
+    { path: '**', redirectTo: 'login' },
+    //{ path: '**', component: LoginFormComponent }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
