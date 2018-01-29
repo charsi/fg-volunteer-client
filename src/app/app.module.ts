@@ -21,6 +21,7 @@ import { LoginFormComponent } from './_components/login-form/login-form.componen
 import { ShiftsComponent } from './_components/shifts/shifts.component';
 import { ProfileComponent } from './_components/profile/profile.component';
 import { MyshiftsComponent } from './_components/myshifts/myshifts.component';
+import { SettingsComponent } from './_components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MyshiftsComponent } from './_components/myshifts/myshifts.component';
     AlertComponent,
     ShiftsComponent,
     ProfileComponent,
-    MyshiftsComponent
+    MyshiftsComponent,
+    SettingsComponent
   ],
   imports: [
     routing,
