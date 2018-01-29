@@ -1,3 +1,68 @@
-<p>
-  shifts works!
-</p>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Dismantle</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Test</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Build</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Clean</a>
+  </li>
+</ul>
+<br>
+<router-outlet name="calendar"></router-outlet>
+
+<div class="row">
+  <div class="col">
+    <h4>Morning Shift(11Am - 2PM)</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Wed 31/1</th>
+          <th scope="col">Thu 1/2</th>
+          <th scope="col">Fri 2/2</th>
+          <th scope="col">Sat 3/2</th>
+          <th scope="col">Mon 6/2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h4>Afternoon Shift(3PM - 6PM)</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Wed 31/1</th>
+          <th scope="col">Thu 1/2</th>
+          <th scope="col">Fri 2/2</th>
+          <th scope="col">Sat 3/2</th>
+          <th scope="col">Mon 6/2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+          <td><button type="button" class="btn btn-light">...</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
