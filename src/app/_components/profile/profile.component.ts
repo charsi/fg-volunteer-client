@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from '../../_models/user';
 import { UserService } from '../../_services/user.service';
+import { AuthService } from '../../_services/auth.service';
 
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'profile.component.html'
+    templateUrl: 'profile.component.html',
+    styleUrls: ['./profile.component.css']
 })
 
 export class ProfileComponent implements OnInit {
@@ -14,7 +16,7 @@ export class ProfileComponent implements OnInit {
     userInfo: User;
     userProperties;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private authService:AuthService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser')); 
     }
 
@@ -26,7 +28,6 @@ export class ProfileComponent implements OnInit {
         this.userService.getById(this.currentUser.id).subscribe(userInfo => { 
             this.userInfo = userInfo;
             this.userProperties = Object.keys(this.userInfo); 
-        });
-        
+        });  
     }
 }

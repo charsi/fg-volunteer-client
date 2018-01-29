@@ -18,37 +18,47 @@ export class AuthService {
 
    public login(username:string, password:string){
     return this.http.post<any>('http://localhost:3000/api/v1/users/login', {username:username, password:password})
-      .map((res) => {
-        // login successful if there's a jwt token in the response
-        if (res && res.id) {
-          console.log(res);
-          let token = res.id ;
-          let id = res.userId ;
-          console.log("ee ");
-          this.token = token;
-            // store username and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token, id:id }));
-            // return true to indicate successful login
-            return true;
-        } else {
-            // return false to indicate failed login
-            return false;
-        }
+    .map((res) => {
+      // login successful if there's a jwt token in the response
+      if (res && res.id) {
+        console.log(res);
+        let token = res.id ;
+        let id = res.userId ;
+        console.log("ee ");
+        this.token = token;
+        // store username and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token, id:id }));
+        // return true to indicate successful login
+        return true;
+      } else {
+        // return false to indicate failed login
+        return false;
+      }
     })
     .catch(this.handleError);
   }
 
   public logout() {
     const token = this.getToken();
-    return this.http.post<any>('http://localhost:3000/api/v1/users/logout', {token:token})
-    // remove user from local storage to log user out
-    //localStorage.removeItem('token');
+    return this.http.post<any>('http://localhost:3000/api/v1/users/logout', {})
+    .map((response) => {
+      console.log('-------------------');
+      console.log(response);
+      // remove user from local storage to log user out
+      localStorage.removeItem('currentUser');
+      console.log('token deleted');
+    })
+    .catch(this.handleError);
+    
   }
 
   public getToken(): string {
-    let token = JSON.parse(localStorage.getItem('currentUser')).token;
-    console.log(token);
-    return token;
+    let token = '';
+    if (localStorage.getItem('currentUser')){
+      token = JSON.parse(localStorage.getItem('currentUser')).token;
+    }
+    //console.log(token);
+    return token? token : '';
   }
 
   public isAuthenticated(): boolean {
@@ -63,6 +73,7 @@ export class AuthService {
 
   private handleError (error: Response | any) {
     let errMsg: string;
+    console.log(error);
     if (error instanceof Response) {
       const body = error.json() || '';
       const err = body || JSON.stringify(body);
