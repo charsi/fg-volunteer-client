@@ -12,6 +12,10 @@ export class AuthService {
         this.token = currentUser && currentUser.id;
    }
 
+   public getCurrentUserId(){
+      return JSON.parse(localStorage.getItem('currentUser')).id;
+   }
+
    public login(username:string, password:string){
     return this.http.post<any>('http://localhost:3000/api/v1/users/login', {username:username, password:password})
       .map((res) => {

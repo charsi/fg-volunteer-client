@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { AlertService } from '../../_services/alert.service';
 import { AuthService } from '../../_services/auth.service';
 
@@ -12,7 +12,6 @@ import { AuthService } from '../../_services/auth.service';
 export class LoginFormComponent implements OnInit {
   model: any = {};
   loading = false;
-  error = '';
   returnUrl: string;
 
   constructor(
@@ -30,9 +29,9 @@ export class LoginFormComponent implements OnInit {
       console.log(result);
       if (result==true) {
           this.loading = false;
-          this.error = '';
           //this.router.navigate(['/']);
           this.alertService.success('Success', true);
+          this.router.navigate(['shifts']);
       } else this.showBadPasswordError();
     },(error)=>this.showBadPasswordError());
   }

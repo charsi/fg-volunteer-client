@@ -1,0 +1,9 @@
+<div class="col-md-6 col-md-offset-3">
+    <h1>Hi {{currentUser.username}}!</h1>
+    <h3>Current user info:</h3>
+    <ul>
+        <li *ngFor="let prop of userProperties">
+            <strong>{{prop}}</strong>: {{userInfo[prop]}}
+        </li>
+    </ul>
+</div>
