@@ -20,6 +20,7 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { LoginFormComponent } from './_components/login-form/login-form.component';
 import { ShiftsComponent } from './_components/shifts/shifts.component';
 import { ProfileComponent } from './_components/profile/profile.component';
+import { MyshiftsComponent } from './_components/myshifts/myshifts.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProfileComponent } from './_components/profile/profile.component';
     LoginFormComponent,
     AlertComponent,
     ShiftsComponent,
-    ProfileComponent
+    ProfileComponent,
+    MyshiftsComponent
   ],
   imports: [
     routing,
