@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-myshifts',
-  templateUrl: './myshifts.component.html',
-  styleUrls: ['./myshifts.component.css']
+  templateUrl: './my-shifts.component.html',
+  styleUrls: ['./my-shifts.component.css']
 })
-export class MyshiftsComponent implements OnInit {
+export class MyShiftsComponent implements OnInit {
 
   constructor() { }
 

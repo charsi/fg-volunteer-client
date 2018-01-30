@@ -1,10 +1,14 @@
 header{
-  border-bottom: 1px solid #e5e5e5;
+  /* border-bottom: 1px solid #e5e5e5; */
   margin-bottom: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 50px;
 }
 
 header > h1{
   display:inline
 }
+
+.navbar-brand > a:hover {
+  text-decoration: none;
+}
+

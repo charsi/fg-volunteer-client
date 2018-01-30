@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyshiftsComponent } from './myshifts.component';
+import { MyShiftsComponent } from './my-shifts.component';
 
 describe('MyshiftsComponent', () => {
-  let component: MyshiftsComponent;
-  let fixture: ComponentFixture<MyshiftsComponent>;
+  let component: MyShiftsComponent;
+  let fixture: ComponentFixture<MyShiftsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyshiftsComponent ]
+      declarations: [ MyShiftsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyshiftsComponent);
+    fixture = TestBed.createComponent(MyShiftsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

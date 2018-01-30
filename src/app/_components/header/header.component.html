@@ -1,7 +1,7 @@
 <header>    
-  <nav class="navbar navbar-expand-sm navbar-light bg-light ">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
     <div class="navbar-brand">
-      <a href="/"><img src="assets/logo.svg" class="img-fluid"  alt="logo" width="30" ></a>
+      <a href="/"><img src="assets/logo.svg" class="img-fluid"  alt="logo" width="30" > <strong>VOLUNTEERS</strong></a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,15 +16,15 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{currentUser.username}}
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="nav-link" routerLink="/profile" routerLinkActive="active">Your Profile</a>
-            <a class="nav-link" routerLink="/settings" routerLinkActive="active">Settings</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/profile">Your Profile</a>
+            <a class="dropdown-item" routerLink="/settings">Settings</a>
             <div class="dropdown-divider"></div>
-            <a class="nav-link " routerLink="/login" routerLinkActive="active" (click)="logoutee()">Logout</a>
+            <a class="dropdown-item" routerLink="/login" (click)="logoutee()">Logout</a>
           </div>
         </li>
       </ul>

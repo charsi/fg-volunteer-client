@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { AlertService } from './_services/alert.service';
+import { AlertService } from '../../_services/alert.service';
 
 
 @Component({
