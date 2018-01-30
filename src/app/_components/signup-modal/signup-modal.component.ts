@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup-modal.component.css']
 })
 export class SignupModalComponent implements OnInit {
-  
 
   constructor() { }
 

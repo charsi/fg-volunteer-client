@@ -3,10 +3,10 @@
     <div class="navbar-brand">
       <a href="/"><img src="assets/logo.svg" class="img-fluid"  alt="logo" width="30" > <strong>VOLUNTEERS</strong></a>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" (click)="showMenu=!showMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" [ngClass]="{'show': showMenu}" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="/shifts" routerLinkActive="active">Shifts</a>
@@ -17,10 +17,10 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-link nav-link dropdown-toggle" (click)="showDropdown=!showDropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" >
             {{currentUser.username}}
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': showDropdown}" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/profile">Your Profile</a>
             <a class="dropdown-item" routerLink="/settings">Settings</a>
             <div class="dropdown-divider"></div>
@@ -30,5 +30,4 @@
       </ul>
     </div>
   </nav>
-  <alert></alert>
 </header>

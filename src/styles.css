@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* remove the stupid dotted line around links and buttons in firefox */
+:focus, :active {
+    outline: 0;
+    border: 0;
+}
+
+
+  

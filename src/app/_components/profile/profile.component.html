@@ -1,9 +1,14 @@
 <div class="col-md-6 col-md-offset-3">
     <h1>Hi {{firstName}}!</h1>
     <!-- <h3>Current user info:</h3> -->
-    <ul>
-        <li *ngFor="let prop of userProperties">
-            <strong>{{prop}}</strong>: {{userInfo[prop]}}
+    <ul class="list-group">
+        <li class="list-group-item" ><strong>Username</strong>: {{userInfo.username}}</li>
+        <li class="list-group-item" ><strong>Fisrt Name</strong>: {{userInfo.firstName}}</li>
+        <li class="list-group-item" ><strong>Last Name</strong>: {{userInfo.lastName}}</li>
+        <li class="list-group-item" ><strong>Phone Number</strong>: {{userInfo.phoneNumber}}
         </li>
+        <li class="list-group-item" ><strong>Email</strong>: {{userInfo.email}}
+        </li>
+        <!-- <li class="list-group-item" ><strong>ID</strong>: {{userInfo.id}}</li> -->
     </ul>
 </div>

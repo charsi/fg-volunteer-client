@@ -10,7 +10,7 @@ import { User } from '../../_models/user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  currentUser: User;
+  private currentUser: User;
 
   constructor(private auth:AuthService,
     private alertService: AlertService) { this.currentUser = JSON.parse(localStorage.getItem('currentUser'));}

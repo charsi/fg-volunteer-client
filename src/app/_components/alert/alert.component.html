@@ -1,8 +1,12 @@
 <div class="row">
   <div class="col">
-    <div role="alert" *ngIf="message" [ngClass]="{ 'alert alert-dismissible fade show': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error', 'alert-warning': message.type === 'warning' }">
-      {{message.text}} 
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <div role="alert"  *ngIf="message && showAlert" [ngClass]="{ 
+      'alert alert-dismissible fade show': message,
+      'alert-success': message.type === 'success',
+      'alert-danger': message.type === 'error',
+      'alert-warning': message.type === 'warning' 
+    }">{{message.text}} 
+      <button type="button" class="close" (click)="showAlert=!showAlert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
