@@ -12,12 +12,15 @@ import { User } from '../../_models/user';
 export class HeaderComponent implements OnInit {
   private currentUser: User;
 
-  constructor(private auth:AuthService,
-    private alertService: AlertService) { this.currentUser = JSON.parse(localStorage.getItem('currentUser'));}
+  constructor(
+    public auth:AuthService,
+    private alertService: AlertService
+  ) { 
+    this.currentUser = auth.getCurrentUserId();
+  }
 
   ngOnInit() {
-
-
+  
   }
 
   public logoutee() {

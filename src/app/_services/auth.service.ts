@@ -13,15 +13,23 @@ export class AuthService {
    }
 
    public getCurrentUserId(){
+     if (localStorage.getItem('currentUser')){
       return JSON.parse(localStorage.getItem('currentUser')).id;
+     } else return "";
    }
+
+   public getCurrentUserName(){
+    if (localStorage.getItem('currentUser')){
+     return JSON.parse(localStorage.getItem('currentUser')).username;
+    } else return "";
+  }
 
    public login(username:string, password:string){
     return this.http.post<any>('http://localhost:3000/api/v1/users/login', {username:username, password:password})
     .map((res) => {
       // login successful if there's a jwt token in the response
       if (res && res.id) {
-        console.log(res);
+        //console.log(res);
         let token = res.id;
         let id = res.userId;
         let firstName = res.firstName;

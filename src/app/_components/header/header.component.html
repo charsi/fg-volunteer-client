@@ -6,8 +6,8 @@
     <button class="navbar-toggler" type="button" (click)="showMenu=!showMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" [ngClass]="{'show': showMenu}" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" [ngClass]="{'show': showMenu}" id="navbarSupportedContent" *ngIf="auth.isAuthenticated()">
+      <ul class="navbar-nav mr-auto" >
         <li class="nav-item">
           <a class="nav-link" routerLink="/shifts" routerLinkActive="active">Shifts</a>
         </li>
@@ -15,10 +15,10 @@
           <a class="nav-link" routerLink="/myshifts" routerLinkActive="active">My Shifts </a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto" >
         <li class="nav-item dropdown ">
           <button class="btn btn-link nav-link dropdown-toggle" (click)="showDropdown=!showDropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" >
-            {{currentUser.username}}
+            {{auth.getCurrentUserName()}}
           </button>
           <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': showDropdown}" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/profile">Your Profile</a>
