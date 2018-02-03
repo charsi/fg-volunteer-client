@@ -1,7 +1,7 @@
 <header>    
   <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
     <div class="navbar-brand">
-      <a href="/"><img src="assets/logo.svg" class="img-fluid"  alt="logo" width="30" > <strong>VOLUNTEERS</strong></a>
+      <a routerLink=""><img src="assets/logo.svg" class="img-fluid"  alt="logo" width="30" > <strong>VOLUNTEERS</strong></a>
     </div>
     <button class="navbar-toggler" type="button" (click)="showMenu=!showMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" *ngIf="auth.isAuthenticated()">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
           <a class="nav-link" routerLink="/shifts" routerLinkActive="active">Shifts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/myshifts" routerLinkActive="active">My Shifts </a>
+          <a class="nav-link" routerLink="/myshifts" routerLinkActive="active">My Shifts</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" >
@@ -24,7 +24,7 @@
             <a class="dropdown-item" routerLink="/profile">Your Profile</a>
             <a class="dropdown-item" routerLink="/settings">Settings</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="/login" (click)="logoutee()">Logout</a>
+            <a class="dropdown-item" (click)="logoutee()">Logout</a>
           </div>
         </li>
       </ul>
