@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Router, CanActivate } from '@angular/router';
+
 import { HttpRequest, HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+
 @Injectable()
 export class AuthService {
   private apiHost:string;
   public token: string;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.id;
     this.apiHost = 'https://fgdemoapi.nishil.in/api/v1';
@@ -53,7 +56,7 @@ export class AuthService {
     return this.http.post<any>(this.apiHost+'/users/logout', {})
     .map(() => {
       localStorage.removeItem('currentUser');
-      console.log('token deleted');
+      this.router.navigate(['/']);
     })
     .catch(this.handleError);
     
