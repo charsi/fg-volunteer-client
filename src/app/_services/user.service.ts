@@ -5,25 +5,28 @@ import { User } from '../_models/user';
 
 @Injectable()
 export class UserService {
-    constructor(private http: HttpClient) {}
+    private apiHost:string;
+    constructor(private http: HttpClient) {
+        this.apiHost = 'http://fgdemoapi.nishil.in/api/v1/users/';
+    }
     
     loadCurrent() {
-        return this.http.get<User[]>('http://localhost:3000/api/v1/users/');
+        return this.http.get<User[]>(this.apiHost);
     }
 
     getById(id: string) {
-        return this.http.get<User>('http://localhost:3000/api/v1/users/' + id);
+        return this.http.get<User>(this.apiHost + id);
     }
 
     create(user: User) {
-        return this.http.post('http://localhost:3000/api/v1/users/', user);
+        return this.http.post(this.apiHost, user);
     }
 
     update(user: User) {
-        return this.http.put('http://localhost:3000/api/v1/users/' + user.id, user);
+        return this.http.put(this.apiHost + user.id, user);
     }
 
     delete(id: number) {
-        return this.http.delete('http://localhost:3000/api/v1/users/' + id);
+        return this.http.delete(this.apiHost + id);
     }
 }

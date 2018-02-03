@@ -6,10 +6,12 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class AuthService {
+  private apiHost:string;
   public token: string;
   constructor(private http: HttpClient) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.id;
+    this.token = currentUser && currentUser.id;
+    this.apiHost = 'http://fgdemoapi.nishil.in/api/v1';
    }
 
    public getCurrentUserId(){
@@ -25,7 +27,7 @@ export class AuthService {
   }
 
    public login(username:string, password:string){
-    return this.http.post<any>('http://localhost:3000/api/v1/users/login', {username:username, password:password})
+    return this.http.post<any>(this.apiHost+'/users/login', {username:username, password:password})
     .map((res) => {
       // login successful if there's a jwt token in the response
       if (res && res.id) {
@@ -48,7 +50,7 @@ export class AuthService {
 
   public logout() {
     const token = this.getToken();
-    return this.http.post<any>('http://localhost:3000/api/v1/users/logout', {})
+    return this.http.post<any>(this.apiHost+'/users/logout', {})
     .map(() => {
       localStorage.removeItem('currentUser');
       console.log('token deleted');
