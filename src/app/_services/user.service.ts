@@ -7,7 +7,7 @@ import { User } from '../_models/user';
 export class UserService {
     private apiHost:string;
     constructor(private http: HttpClient) {
-        this.apiHost = 'http://fgdemoapi.nishil.in/api/v1/users/';
+        this.apiHost = 'https://fgdemoapi.nishil.in/api/v1/users/';
     }
     
     loadCurrent() {

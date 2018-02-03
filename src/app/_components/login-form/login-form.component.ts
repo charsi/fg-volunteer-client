@@ -16,15 +16,18 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService,
+    private auth: AuthService,
     private alertService: AlertService) { }
 
   ngOnInit() {
+    if (this.auth.isAuthenticated()){
+      this.router.navigate(['/shifts']);
+    }
 
   }
   login() {
     this.loading = true;
-    this.authService.login(this.model.username, this.model.password)
+    this.auth.login(this.model.username, this.model.password)
     .subscribe(result => {
       console.log(result);
       if (result==true) {

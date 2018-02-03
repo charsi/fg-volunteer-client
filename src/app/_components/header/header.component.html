@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <a href="/"><img src="assets/logo.svg" class="img-fluid"  alt="logo" width="30" > <strong>VOLUNTEERS</strong></a>
     </div>
-    <button class="navbar-toggler" type="button" (click)="showMenu=!showMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" (click)="showMenu=!showMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" *ngIf="auth.isAuthenticated()">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" [ngClass]="{'show': showMenu}" id="navbarSupportedContent" *ngIf="auth.isAuthenticated()">

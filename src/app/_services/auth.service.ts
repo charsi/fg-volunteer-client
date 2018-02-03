@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.id;
-    this.apiHost = 'http://fgdemoapi.nishil.in/api/v1';
+    this.apiHost = 'https://fgdemoapi.nishil.in/api/v1';
    }
 
    public getCurrentUserId(){
