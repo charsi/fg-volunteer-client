@@ -20,11 +20,11 @@
           <button class="btn btn-link nav-link dropdown-toggle" (click)="showDropdown=!showDropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" >
             {{auth.getCurrentUserName()}}
           </button>
-          <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': showDropdown}" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': showDropdown}" (mouseout)="showDropdown = false" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/profile">Your Profile</a>
             <a class="dropdown-item" routerLink="/settings">Settings</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logoutee()">Logout</a>
+            <a class="btn dropdown-item" (click)="auth.logout().subscribe()">Logout</a>
           </div>
         </li>
       </ul>

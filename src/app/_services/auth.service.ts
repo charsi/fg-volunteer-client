@@ -5,13 +5,13 @@ import { HttpRequest, HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse }
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-
+import { AlertService } from '../_services/alert.service';
 
 @Injectable()
 export class AuthService {
   private apiHost:string;
   public token: string;
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private alertService: AlertService,) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.id;
     this.apiHost = 'https://fgdemoapi.nishil.in/api/v1';
@@ -52,14 +52,14 @@ export class AuthService {
   }
 
   public logout() {
-    const token = this.getToken();
     return this.http.post<any>(this.apiHost+'/users/logout', {})
     .map(() => {
+      console.log("fgdfgdfg");
       localStorage.removeItem('currentUser');
       this.router.navigate(['/']);
+      this.alertService.warning('You have been logged out.', true);
     })
     .catch(this.handleError);
-    
   }
 
   public getToken(): string {

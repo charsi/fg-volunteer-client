@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
-import { AlertService } from '../../_services/alert.service';
 import { User } from '../../_models/user';
+import { Router } from '@angular/router';
+
 
 @Component({
   moduleId: module.id,
@@ -10,22 +11,23 @@ import { User } from '../../_models/user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private currentUser: User;
+  private showMenu:boolean;
+  private showDropdown:boolean;
 
   constructor(
     public auth:AuthService,
-    private alertService: AlertService
+    private router:Router
   ) { 
-    this.currentUser = auth.getCurrentUserId();
+    this.router.events.subscribe(() => {
+      this.showMenu = false;
+      this.showDropdown = false;
+    });
   }
 
   ngOnInit() {
-  
   }
 
-  public logoutee() {
-    this.auth.logout().subscribe(()=>{
-      this.alertService.warning('You have been logged out.', true);
-    });    
+  logout(){
+    this.auth.logout().subscribe();
   }
 }

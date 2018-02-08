@@ -16,10 +16,15 @@
               {{shift.subType}} ({{shift.availableSlots}} slots available)
             </label>
           </div>
-          <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Training needed?</label>
-            </div>
+          <label class="custom-control-label" for="customCheck1">Training needed?</label>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary" [ngClass]="{'active': trainingNeeded}">
+              <input type="radio" name="options" id="option1" autocomplete="off" (click)="trainingNeeded=!trainingNeeded" > Yes
+            </label>
+            <label class="btn btn-primary" [ngClass]="{'active': !trainingNeeded}">
+              <input type="radio" name="options" id="option2" autocomplete="off"(click)="trainingNeeded=!trainingNeeded" > No
+            </label>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
