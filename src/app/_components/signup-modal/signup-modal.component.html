@@ -17,12 +17,12 @@
             </label>
           </div>
           <label class="custom-control-label" for="customCheck1">Training needed?</label>
-          <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary" [ngClass]="{'active': trainingNeeded}">
-              <input type="radio" name="options" id="option1" autocomplete="off" (click)="trainingNeeded=!trainingNeeded" > Yes
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-primary" [class.active]="trainingNeeded">
+              <input type="radio" name="options" id="option1" autocomplete="off"  [(ngModel)]="trainingNeeded" [value]="true"> Yes
             </label>
-            <label class="btn btn-primary" [ngClass]="{'active': !trainingNeeded}">
-              <input type="radio" name="options" id="option2" autocomplete="off"(click)="trainingNeeded=!trainingNeeded" > No
+            <label class="btn btn-primary" [class.active]="!trainingNeeded">
+              <input type="radio" name="options" id="option2" autocomplete="off" [(ngModel)]="trainingNeeded" [value]="false"> No
             </label>
           </div>
         </form>

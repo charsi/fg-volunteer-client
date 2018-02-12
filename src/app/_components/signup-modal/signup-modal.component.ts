@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+//import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-signup-modal',
@@ -10,6 +11,10 @@ export class SignupModalComponent implements OnInit {
   modalData:any;
   showModal:boolean;
 
+ /*  pageForm = new FormGroup({
+    'options': new FormControl('1')
+  }); */
+
   @Input()
   set setModal(modalData: any) {
     this.modalData = modalData;
@@ -20,4 +25,5 @@ export class SignupModalComponent implements OnInit {
     this.showModal = false;
   }
 
+  doSomething(){}
 }
