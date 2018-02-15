@@ -22,6 +22,8 @@ import { ProfileComponent } from './_components/profile/profile.component';
 import { MyShiftsComponent } from './_components/my-shifts/my-shifts.component';
 import { SettingsComponent } from './_components/settings/settings.component';
 import { SignupModalComponent } from './_components/signup-modal/signup-modal.component';
+import { AdminUsersComponent } from './_components/admin-users/admin-users.component';
+import { AdminShiftsComponent } from './_components/admin-shifts/admin-shifts.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { SignupModalComponent } from './_components/signup-modal/signup-modal.co
     ProfileComponent,
     MyShiftsComponent,
     SettingsComponent,
-    SignupModalComponent
+    SignupModalComponent,
+    AdminUsersComponent,
+    AdminShiftsComponent
   ],
   imports: [
     routing,

@@ -16,9 +16,9 @@
 <div class="row">
   <div class="col">
     <div class="btn-group float-right" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-outline-dark"><span class="oi oi-chevron-left"></span></button>
+      <button type="button" class="btn btn-outline-dark" (click)="shiftDates('previous')"><span class="oi oi-chevron-left"></span></button>
       <button type="button"  class="btn btn-secondary">Feb 03 - Feb 08</button>
-      <button type="button" class="btn btn-outline-dark"><span class="oi oi-chevron-right"></span></button>
+      <button type="button" class="btn btn-outline-dark" (click)="shiftDates('next')"><span class="oi oi-chevron-right"></span></button>
     </div>
   </div>
 </div>

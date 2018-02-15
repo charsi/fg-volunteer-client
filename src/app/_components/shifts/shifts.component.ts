@@ -51,4 +51,12 @@ export class ShiftsComponent implements OnInit {
   returnModaldata(){
     return this.modalData;
   }
+
+  shiftDates(direction:string){
+    if (direction==='next'){
+      console.log('next');
+    }else if (direction==='previous'){
+      console.log('previous');
+    }
+  }
 }

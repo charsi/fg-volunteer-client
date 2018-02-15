@@ -2,27 +2,26 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{modalData.date | date:'EEE d MMM'}} <span class="badge badge-secondary"> {{modalData.startTime}} to {{modalData.endTime}}</span></h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{modalData.date | date:'EEEE, dd MMM'}} <span class="badge badge-secondary"> {{modalData.startTime}} to {{modalData.endTime}}</span></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="showModal=false">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <h5>{{modalData.shiftType}}</h5>
+        <h5>{{modalData.shiftType | titlecase }}</h5>
         <form>
-          <div class="form-check" *ngFor="let shift of modalData.shifts; let i = index">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-            <label class="form-check-label" for="exampleRadios1">
-              {{shift.subType}} ({{shift.availableSlots}} slots available)
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+            <label class="btn btn-primary" [class.active]="shiftSubType == shift.subType" *ngFor="let shift of modalData.shifts; let i = index">
+              <input type="radio" name="shiftSubType" id="{{'shiftSubType'+i}}" autocomplete="off"  [(ngModel)]="shiftSubType" [value]="shift.subType"> {{shift.subType}}-{{shift.availableSlots}}
             </label>
-          </div>
+          </div><br>
           <label class="custom-control-label" for="customCheck1">Training needed?</label>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-primary" [class.active]="trainingNeeded">
-              <input type="radio" name="options" id="option1" autocomplete="off"  [(ngModel)]="trainingNeeded" [value]="true"> Yes
+          <div class="btn-group btn-group-toggle" data-toggle="buttons2" id="trainingRadio">
+            <label class="btn btn-primary" [class.active]="trainingNeeded == 'yes'">
+              <input type="radio" name="training" id="trainingYesRadio" autocomplete="off"  [(ngModel)]="trainingNeeded" value="yes"> Yes
             </label>
-            <label class="btn btn-primary" [class.active]="!trainingNeeded">
-              <input type="radio" name="options" id="option2" autocomplete="off" [(ngModel)]="trainingNeeded" [value]="false"> No
+            <label class="btn btn-primary" [class.active]="trainingNeeded == 'no'">
+              <input type="radio" name="training" id="trainingNoRadio" autocomplete="off" [(ngModel)]="trainingNeeded" value="no"> No
             </label>
           </div>
         </form>

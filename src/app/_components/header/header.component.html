@@ -14,13 +14,22 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/myshifts" routerLinkActive="active">My Shifts</a>
         </li>
+        <li class="nav-item dropdown">
+            <button class="btn btn-link nav-link dropdown-toggle" (click)="showAdminMenu=!showAdminMenu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </button>
+            <div class="dropdown-menu" [class.show]="showAdminMenu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/admin/users">Users</a>
+              <a class="dropdown-item" routerLink="/admin/shifts">Shifts</a>
+            </div>
+          </li>
       </ul>
       <ul class="navbar-nav ml-auto" >
         <li class="nav-item dropdown ">
-          <button class="btn btn-link nav-link dropdown-toggle" (click)="showDropdown=!showDropdown" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" >
+          <button class="btn btn-link nav-link dropdown-toggle" (click)="showUserMenu=!showUserMenu" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" >
             {{auth.getCurrentUserName()}}
           </button>
-          <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': showDropdown}" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-right" [class.show]="showUserMenu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/profile">Your Profile</a>
             <a class="dropdown-item" routerLink="/settings">Settings</a>
             <div class="dropdown-divider"></div>

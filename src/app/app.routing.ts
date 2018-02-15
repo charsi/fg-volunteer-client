@@ -6,6 +6,8 @@ import { ProfileComponent } from './_components/profile/profile.component';
 import { LoginFormComponent } from './_components/login-form/login-form.component';
 import { MyShiftsComponent } from './_components/my-shifts/my-shifts.component';
 import { SettingsComponent } from './_components/settings/settings.component';
+import { AdminUsersComponent } from './_components/admin-users/admin-users.component';
+import { AdminShiftsComponent } from './_components/admin-shifts/admin-shifts.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 const appRoutes: Routes = [
@@ -18,6 +20,8 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginFormComponent },
     { path: 'myshifts', component: MyShiftsComponent, canActivate: [AuthGuard] },
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+    { path: 'admin/users', component: AdminUsersComponent, canActivate: [AuthGuard] },
+    { path: 'admin/shifts', component: AdminShiftsComponent, canActivate: [AuthGuard] },
     // otherwise redirect to home
     { path: '**', redirectTo: 'login' },
     //{ path: '**', component: LoginFormComponent }
