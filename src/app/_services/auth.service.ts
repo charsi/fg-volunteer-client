@@ -52,8 +52,8 @@ export class AuthService {
     })
     .catch((err) => {
       this.handleError(err);
-      return Observable.throw(err);}
-    );
+      return Observable.throw(err);
+    });
     
   }
 
@@ -67,8 +67,8 @@ export class AuthService {
     })
     .catch((err) => {
       this.handleError(err);
-      return Observable.throw(err);}
-    );
+      return Observable.throw(err);
+    });
   }
 
   public forceLogout(){
