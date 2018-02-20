@@ -18,7 +18,8 @@ export class ProfileComponent implements OnInit {
     firstName:string;
 
     constructor(private userService: UserService, private authService:AuthService) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser')); 
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.userInfo = new User; 
     }
 
     ngOnInit() {

@@ -46,10 +46,15 @@ export class AuthService {
         return true;
       } else {
         // return false to indicate failed login
+        //his.forceLogout();
         return false;
       }
     })
-    .catch(this.handleError);
+    .catch((err) => {
+      this.handleError(err);
+      return Observable.throw(err);}
+    );
+    
   }
 
   public logout() {
@@ -60,7 +65,15 @@ export class AuthService {
       this.router.navigate(['/']);
       this.alertService.warning('You have been logged out.', true);
     })
-    .catch(this.handleError);
+    .catch((err) => {
+      this.handleError(err);
+      return Observable.throw(err);}
+    );
+  }
+
+  public forceLogout(){
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/']);
   }
 
   public getToken(): string {
@@ -83,6 +96,7 @@ export class AuthService {
   }
 
   private handleError (error: Response | any) {
+    this.forceLogout();
     let errMsg: string;
     console.log(error);
     if (error instanceof Response) {
@@ -92,8 +106,8 @@ export class AuthService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
+    this.forceLogout();
     console.error(errMsg);
-    return Observable.throw(errMsg);
   }
 
 
