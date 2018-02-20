@@ -15,6 +15,8 @@
 <br>
 <div class="row">
   <div class="col">
+    <h1>{{shiftType | titlecase}}</h1>
+    <h5>{{shiftDescriptions[shiftType]}}</h5>
     <div class="btn-group float-right" role="group" aria-label="Basic example">
       <button type="button" class="btn btn-outline-dark" (click)="shiftDates('previous')"><span class="oi oi-chevron-left"></span></button>
       <button type="button"  class="btn btn-secondary">Feb 03 - Feb 08</button>
@@ -35,7 +37,7 @@
       <tbody>
         <tr>
           <td *ngFor="let date of dates; let i = index">
-            <button type="button" class="btn btn-outline-dark" [attr.data-date]="date" data-start-time="11AM" data-end-time="2PM" (click)="updateModalData($event)">...</button>
+            <button type="button" class="btn btn-outline-success" [attr.data-date]="date" data-start-time="11AM" data-end-time="2PM" (click)="updateModalData($event)"><span class="oi oi-ellipses"></span></button>
           </td>
         </tr>
       </tbody>
@@ -55,7 +57,7 @@
       <tbody>
         <tr>
           <td *ngFor="let date of dates; let i = index">
-            <button type="button" class="btn btn-outline-dark" [attr.data-date]="date" data-start-time="3PM" data-end-time="6PM" (click)="updateModalData($event)">...</button>
+            <button type="button" class="btn btn-outline-danger" [attr.data-date]="date" data-start-time="3PM" data-end-time="6PM" (click)="updateModalData($event)"><span class="oi oi-ellipses"></span></button>
           </td>
         </tr>
       </tbody>

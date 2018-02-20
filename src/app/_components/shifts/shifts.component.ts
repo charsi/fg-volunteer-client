@@ -12,6 +12,12 @@ export class ShiftsComponent implements OnInit {
   dates:string[];
   shiftType:string;
   subTypes:any;
+  shiftDescriptions = {
+    "dismantle":"Dismantle computers and other electronics down to harvest their components.",
+    "test":"Test and categorize computer parts such as RAMs and hard drives.",
+    "build":"Assemble computer parts together to prepare a new computer system.",
+    "clean":"Clean and organise things in the facility (one shift per day)"
+  }
   constructor(private router:Router) { }
 
   ngOnInit() {
