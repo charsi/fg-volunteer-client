@@ -12,15 +12,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   private showMenu:boolean;
-  private showDropdown:boolean;
+  private showUserMenu:boolean;
+  private showAdminMenu:boolean;
 
   constructor(
     public auth:AuthService,
     private router:Router
   ) { 
     this.router.events.subscribe(() => {
-      this.showMenu = false;
-      this.showDropdown = false;
+      this.showMenu = false; // close dropdown when link is clicked
+      this.showUserMenu = false; // close dropdown when link is clicked
+      this.showAdminMenu = false; // close dropdown when link is clicked
     });
   }
 

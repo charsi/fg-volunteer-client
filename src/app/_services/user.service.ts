@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { User } from '../_models/user';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserService {
     private apiHost:string;
     constructor(private http: HttpClient) {
-        this.apiHost = 'https://fgdemoapi.nishil.in/api/v1/users/';
+        this.apiHost = environment.API_URL+'/users/';
     }
     
     loadCurrent() {

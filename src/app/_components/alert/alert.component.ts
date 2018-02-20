@@ -10,7 +10,7 @@ import { AlertService } from '../../_services/alert.service';
  
 export class AlertComponent {
     message: any;
-    private showAlert:boolean = true;
+    public showAlert:boolean = true;
     constructor(private alertService: AlertService) { }
  
     ngOnInit() {

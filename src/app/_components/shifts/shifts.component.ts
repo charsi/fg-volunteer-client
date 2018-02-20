@@ -20,10 +20,10 @@ export class ShiftsComponent implements OnInit {
     this.dates = ["2018-02-03","2018-02-05","2018-02-06","2018-02-07","2018-02-08"];
     this.shiftType = this.getShift(this.router.url);
     this.subTypes = {
-      dismantle:["small","large"],
+      dismantle:["Small","Large"],
       test:["HDD","RAM","Misc"],
       build:["Novice","Advanced"],
-      clean:["cleaning"]
+      clean:["Cleaning"]
     }
   }
 

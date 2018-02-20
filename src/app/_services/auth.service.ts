@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { AlertService } from '../_services/alert.service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router, private alertService: AlertService,) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.id;
-    this.apiHost = 'https://fgdemoapi.nishil.in/api/v1';
+    this.apiHost = environment.API_URL;
    }
 
    public getCurrentUserId(){

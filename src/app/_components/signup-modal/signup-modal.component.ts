@@ -10,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SignupModalComponent implements OnInit {
   modalData:any;
   showModal:boolean;
+  trainingNeeded:string;
 
  /*  pageForm = new FormGroup({
     'options': new FormControl('1')
