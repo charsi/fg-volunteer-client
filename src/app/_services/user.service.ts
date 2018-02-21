@@ -23,6 +23,12 @@ export class UserService {
         return Observable.throw(err);});
     }
 
+    findAll() {
+        return this.http.get<User[]>(this.apiHost).catch((err) => {
+          this.auth.forceLogout();
+          return Observable.throw(err);});
+      }
+
     create(user: User) {
         return this.http.post(this.apiHost, user);
     }
