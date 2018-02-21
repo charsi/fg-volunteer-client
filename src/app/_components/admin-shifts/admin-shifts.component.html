@@ -11,16 +11,20 @@
   </div>
   
   
-
-      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter by type</button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Dismantle</a>
-        <a class="dropdown-item" href="#">Test</a>
-        <a class="dropdown-item" href="#">Build</a>
-        <a class="dropdown-item" href="#">Clean</a>
-      </div>
+  <div class="input-group  col-6">
+    <select class="custom-select" id="inputGroupSelect04">
+      <option selected>All</option>
+      <option value="1">Dismantle</option>
+      <option value="2">Test</option>
+      <option value="3">Build</option>
+      <option value="3">Clean</option>
+    </select>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Filter by Type</button>
+    </div>
+  </div>
   
-  <button class="btn btn-outline-secondary float-right mb-3" type="button">Add shifts</button>
+  <button class="btn btn-outline-secondary float-right mb-3" type="button" routerLink="/admin/shifts/add">Add shifts</button>
   
   <table class="table">
     <thead>

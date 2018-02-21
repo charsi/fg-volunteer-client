@@ -8,6 +8,9 @@ import { MyShiftsComponent } from './_components/my-shifts/my-shifts.component';
 import { SettingsComponent } from './_components/settings/settings.component';
 import { AdminUsersComponent } from './_components/admin-users/admin-users.component';
 import { AdminShiftsComponent } from './_components/admin-shifts/admin-shifts.component';
+import { AdminUsersAddComponent } from './_components/admin-users-add/admin-users-add.component';
+import { AdminShiftsAddComponent } from './_components/admin-shifts-add/admin-shifts-add.component';
+
 import { AuthGuard } from './_guards/auth.guard';
 
 const appRoutes: Routes = [
@@ -22,6 +25,8 @@ const appRoutes: Routes = [
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
     { path: 'admin/users', component: AdminUsersComponent, canActivate: [AuthGuard] },
     { path: 'admin/shifts', component: AdminShiftsComponent, canActivate: [AuthGuard] },
+    { path: 'admin/users/add', component: AdminUsersAddComponent, canActivate: [AuthGuard] },
+    { path: 'admin/shifts/add', component: AdminShiftsAddComponent, canActivate: [AuthGuard] },
     // otherwise redirect to home
     { path: '**', redirectTo: 'login' },
     //{ path: '**', component: LoginFormComponent }

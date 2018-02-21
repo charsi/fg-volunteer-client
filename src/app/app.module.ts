@@ -24,6 +24,8 @@ import { SettingsComponent } from './_components/settings/settings.component';
 import { SignupModalComponent } from './_components/signup-modal/signup-modal.component';
 import { AdminUsersComponent } from './_components/admin-users/admin-users.component';
 import { AdminShiftsComponent } from './_components/admin-shifts/admin-shifts.component';
+import { AdminUsersAddComponent } from './_components/admin-users-add/admin-users-add.component';
+import { AdminShiftsAddComponent } from './_components/admin-shifts-add/admin-shifts-add.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { AdminShiftsComponent } from './_components/admin-shifts/admin-shifts.co
     SettingsComponent,
     SignupModalComponent,
     AdminUsersComponent,
-    AdminShiftsComponent
+    AdminShiftsComponent,
+    AdminUsersAddComponent,
+    AdminShiftsAddComponent
   ],
   imports: [
     routing,
