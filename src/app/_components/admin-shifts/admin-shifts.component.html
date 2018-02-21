@@ -1,3 +1,44 @@
-<p>
-  admin stuff - shifts
-</p>
+<div class="col-12 col-md-offset-3">
+
+  <h1>Shifts Admin</h1>
+  
+  <div class="input-group mb-3 col-6">
+    <input type="text" class="form-control" placeholder="2018-01-01" >
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Filter by date</button>
+    </div>
+    
+  </div>
+  
+  <div class="input-group mb-3 col-6">
+    <input type="text" class="form-control" placeholder="Name"  >
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Filter by type</button>
+    </div>
+  </div>
+  
+  <button class="btn btn-outline-secondary float-right mb-3" type="button">Add shifts</button>
+  
+  <table class="table">
+    <thead>
+      <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Type</th>
+      <th scope="col">Sub-type</th>
+      <th scope="col">Timings</th>
+      <th scope="col">Assigned to</th>
+      <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shift of shifts">
+        <td>{{ shift.date | date }}</td>
+        <td>{{ shift.type | titlecase }}</td>
+        <td>{{ shift.subType }}</td>
+        <td>{{ shift.startTime }} - {{shift.endTime}}</td>
+        <td>{{ shift.assignedTo }}</td>
+        <td><button type="button" class="btn btn-outline-dark"><span class="oi oi-ellipses"></span></button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

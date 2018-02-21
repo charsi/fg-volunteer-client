@@ -9,6 +9,7 @@ import { AuthService } from '../_services/auth.service';
 @Injectable()
 export class UserService {
     private apiHost:string;
+    
     constructor(private http: HttpClient, private auth:AuthService) {
         this.apiHost = environment.API_URL+'/users/';
     }
