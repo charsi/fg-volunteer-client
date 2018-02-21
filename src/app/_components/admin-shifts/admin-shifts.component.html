@@ -6,16 +6,19 @@
     <input type="text" class="form-control" placeholder="2018-01-01" >
     <div class="input-group-append">
       <button class="btn btn-outline-secondary" type="button">Filter by date</button>
+      <button class="btn btn-outline-secondary" type="button">Print day sheet</button>
     </div>
-    
   </div>
   
-  <div class="input-group mb-3 col-6">
-    <input type="text" class="form-control" placeholder="Name"  >
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button">Filter by type</button>
-    </div>
-  </div>
+  
+
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter by type</button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Dismantle</a>
+        <a class="dropdown-item" href="#">Test</a>
+        <a class="dropdown-item" href="#">Build</a>
+        <a class="dropdown-item" href="#">Clean</a>
+      </div>
   
   <button class="btn btn-outline-secondary float-right mb-3" type="button">Add shifts</button>
   
@@ -32,7 +35,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let shift of shifts">
-        <td>{{ shift.date | date }}</td>
+        <td>{{ shift.date | date: 'EEE, MMM dd' }}</td>
         <td>{{ shift.type | titlecase }}</td>
         <td>{{ shift.subType }}</td>
         <td>{{ shift.startTime }} - {{shift.endTime}}</td>
