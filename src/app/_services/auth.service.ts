@@ -60,7 +60,6 @@ export class AuthService {
   public logout() {
     return this.http.post<any>(this.apiHost+'/users/logout', {})
     .map(() => {
-      console.log("fgdfgdfg");
       localStorage.removeItem('currentUser');
       this.router.navigate(['/']);
       this.alertService.warning('You have been logged out.', true);

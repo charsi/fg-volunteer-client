@@ -29,7 +29,7 @@ export class LoginFormComponent implements OnInit {
     this.loading = true;
     this.auth.login(this.model.username, this.model.password)
     .subscribe(result => {
-      console.log(result);
+      //console.log(result);
       if (result==true) {
           this.loading = false;
           //this.router.navigate(['/']);

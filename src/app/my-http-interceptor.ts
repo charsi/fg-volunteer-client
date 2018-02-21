@@ -16,7 +16,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
 		const authReq = req.clone({ 
 			headers: req.headers.set('authorization', Authorization)
 		}); // Clone the request to add the authorization header.
-		console.log('intercepted header:' + authReq);
+		//console.log('intercepted header:' + authReq);
 		return next.handle(authReq); // Pass on the cloned request instead of the original request.
 	}
 }

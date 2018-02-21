@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
 
   private loadCurrentUser() {
     this.userService.getById(this.currentUser.id).subscribe((userInfo:User) => {
-      console.log(userInfo); 
+      //console.log(userInfo); 
       this.userInfo = userInfo;
       this.userProperties = Object.keys(this.userInfo); 
       this.firstName = userInfo.firstName;
