@@ -14,8 +14,8 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/myshifts" routerLinkActive="active">My Shifts</a>
         </li>
-        <li class="nav-item dropdown">
-            <button class="btn btn-link nav-link dropdown-toggle" (click)="showAdminMenu=!showAdminMenu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown" routerLinkActive="active">
+            <button class="btn btn-link nav-link dropdown-toggle" (click)="showAdminMenu=!showAdminMenu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               Admin
             </button>
             <div class="dropdown-menu" [class.show]="showAdminMenu" aria-labelledby="navbarDropdown">
