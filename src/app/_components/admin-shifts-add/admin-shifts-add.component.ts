@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { Shift } from '../../_models/shift';
+import { ShiftService } from '../../_services/shift.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../_services/alert.service';
+
 @Component({
   selector: 'app-admin-shifts-add',
   templateUrl: './admin-shifts-add.component.html',
@@ -13,6 +19,7 @@ shiftSubTypes = {
   build:[""],
   clean:[""]
 };
+newShift = new Shift();
 
   constructor() { }
 
