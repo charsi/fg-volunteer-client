@@ -101,11 +101,12 @@ export class AuthService {
       const body = error.json() || '';
       const err = body || JSON.stringify(body);
       errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-      if(error.status == 401){
-        this.forceLogout();
-      }
     } else {
       errMsg = error.message ? error.message : error.toString();
+    }
+    if(error.status == 401){
+      console.log('logging out');
+      this.forceLogout();
     }
     console.error(errMsg);
   }
