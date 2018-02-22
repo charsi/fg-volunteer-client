@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-shifts-add.component.css']
 })
 export class AdminShiftsAddComponent implements OnInit {
+shiftTypes = ["dismantle", "test", "build", "clean"];
+shiftSubTypes = {
+  dismantle:["Large", "Small"],
+  test:["RAM","HDD","Misc"],
+  build:[""],
+  clean:[""]
+};
 
   constructor() { }
 

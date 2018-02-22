@@ -44,7 +44,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let shift of shifts">
-        <td>{{ shift.date | date: 'EEE, MMM dd' }}</td>
+        <td>{{ shift.date | date: 'EEE, MMM dd': 'UTC' }}</td>
         <td>{{ shift.type | titlecase }}</td>
         <td>{{ shift.subType }}</td>
         <td>{{ shift.startTime }} - {{shift.endTime}}</td>

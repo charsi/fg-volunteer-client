@@ -1,5 +1,5 @@
 <div class="col-12 col-md-offset-3">
-  <h1>Shifts Admin - Add shifts</h1>
+  <h1>Add shifts</h1>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
@@ -7,31 +7,46 @@
       <li class="breadcrumb-item active">Add shifts</li>
     </ol>
   </nav>
-  <div class="col-6 ">
-  <form>
+  <div>
+  <form class="col-12">
       <div class="form-group">
         <label for="dateInput">Date</label>
         <input type="date" class="form-control" id="dateInput" placeholder="01 / 01 / 2018">
         <small class="form-text text-muted"> </small>
       </div>
-      <div class="form-group">
-          <label for="exampleFormControlSelect1">Type</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option selected>Choose...</option>
-            <option>Dismantle</option>
-            <option>Test</option>
-            <option>Build</option>
-            <option>Clean</option>
-          </select>
+      <div id="form-group">
+        <div class="border rounded p-4 m-4" *ngFor="let shiftType of shiftTypes">
+          <div *ngFor="let subtype of shiftSubTypes[shiftType]">
+            <label for="{{subtype}}SlotsInput">{{shiftType | titlecase}} : {{subtype}}</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="button">-</button>
+                <button class="btn btn-outline-secondary" type="button">+</button>
+              </div>
+              <input type="number" class="form-control" placeholder="0" id="{{subtype}}SlotsInput"  min="0" max="10">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="form-group">
-        <label for="stotsInput">Slots</label>
-        <div class="input-group mb-3" >
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary" type="button">+</button>
-            <button class="btn btn-outline-secondary" type="button">-</button>
+          <label for="sadasdsa">Timing</label>
+          <div>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Morning<br><small>11am - 2pm</small>
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Afternoon<br><small>3pm - 6pm</small>
+              </label>
+            </div>
           </div>
-          <input type="number" class="form-control" placeholder="1" id="stotsInput">
+        </div>
+      <div class="form-group">
+        <label for="sadasdsa">Training available</label>
+        <div class="btn-group-toggle" data-toggle="buttons" >
+          <label class="btn btn-secondary" [class.active]="training" *ngFor="let shiftType of shiftTypes;let index = index">
+            <input type="checkbox" autocomplete="off" [(ngModel)]="training" name="something" [attr.checked]="training ? true : null">{{shiftType}}
+          </label>
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
