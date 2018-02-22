@@ -108,7 +108,8 @@ export class AuthService {
       console.log('logging out');
       this.forceLogout();
     }
-    console.error(errMsg);
+    console.log(errMsg);
+    this.alertService.error("Error : "+error.status, true);
   }
 
 
