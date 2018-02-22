@@ -94,18 +94,19 @@ export class AuthService {
     }
   }
 
-  private handleError (error: Response | any) {
-    this.forceLogout();
+  public handleError (error: Response | any) {
     let errMsg: string;
     console.log(error);
     if (error instanceof Response) {
       const body = error.json() || '';
       const err = body || JSON.stringify(body);
       errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+      if(error.status == 401){
+        this.forceLogout();
+      }
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    this.forceLogout();
     console.error(errMsg);
   }
 

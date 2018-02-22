@@ -20,18 +20,23 @@ export class UserService {
 
     getById(id: string) {
       return this.http.get<User>(this.apiHost + id).catch((err) => {
-        this.auth.forceLogout();
-        return Observable.throw(err);});
+        this.auth.handleError(err);
+        return Observable.throw(err);
+      });
     }
 
     findAll() {
-        return this.http.get<User[]>(this.apiHost).catch((err) => {
-          this.auth.forceLogout();
-          return Observable.throw(err);});
-      }
+      return this.http.get<User[]>(this.apiHost).catch((err) => {
+        this.auth.handleError(err);
+        return Observable.throw(err);
+      });
+    }
 
     create(user: User) {
-        return this.http.post(this.apiHost, user);
+      return this.http.post(this.apiHost, user).catch((err) => {
+        this.auth.handleError(err);
+        return Observable.throw(err);
+      });
     }
 
     update(user: User) {
@@ -41,4 +46,5 @@ export class UserService {
     delete(id: number) {
         return this.http.delete(this.apiHost + id);
     }
+
 }
