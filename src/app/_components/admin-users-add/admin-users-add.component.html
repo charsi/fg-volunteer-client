@@ -7,7 +7,7 @@
   </ol>
 </nav>
 
-<form (ngSubmit)="onSubmit()" #userForm="ngForm"  >
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" [hidden]="submitted" >
   <div class="row">
     <div class="col-sm form-group mb-4 ml-3">
       <label for="firstNameInput">First name</label>

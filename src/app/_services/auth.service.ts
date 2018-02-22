@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 export class AuthService {
   private apiHost:string;
   public token: string;
-  constructor(private http: HttpClient, private router: Router, private alertService: AlertService,) {
+  constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.id;
     this.apiHost = environment.API_URL;
