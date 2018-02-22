@@ -20,10 +20,13 @@ shiftSubTypes = {
   clean:[""]
 };
 newShift = new Shift();
+submitted = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  
+  onSubmit(){
+  }
 }

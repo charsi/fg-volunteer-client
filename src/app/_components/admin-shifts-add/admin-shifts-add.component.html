@@ -15,15 +15,17 @@
     <small class="form-text text-muted"> </small>
   </div>
   <div id="form-group">
-    <div class="border rounded p-4 m-4" *ngFor="let shiftType of shiftTypes">
-      <div *ngFor="let subtype of shiftSubTypes[shiftType]">
-        <label for="{{subtype}}SlotsInput">{{shiftType | titlecase}} : {{subtype}}</label>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary" type="button">-</button>
-            <button class="btn btn-outline-secondary" type="button">+</button>
+    <div class="row">
+      <div class="border rounded p-4 m-1" *ngFor="let shiftType of shiftTypes">
+        <div *ngFor="let subtype of shiftSubTypes[shiftType]">
+          <label for="{{subtype}}SlotsInput">{{shiftType | titlecase}} : {{subtype}}</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-secondary" type="button">-</button>
+              <button class="btn btn-outline-secondary" type="button">+</button>
+            </div>
+            <input type="number" class="form-control" placeholder="0" id="{{subtype}}SlotsInput"  min="0" max="10">
           </div>
-          <input type="number" class="form-control" placeholder="0" id="{{subtype}}SlotsInput"  min="0" max="10">
         </div>
       </div>
     </div>
