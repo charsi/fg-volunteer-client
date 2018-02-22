@@ -45,7 +45,7 @@
         <label for="sadasdsa">Training available</label>
         <div class="btn-group-toggle" data-toggle="buttons" >
           <label class="btn btn-secondary" [class.active]="training" *ngFor="let shiftType of shiftTypes;let index = index">
-            <input type="checkbox" autocomplete="off" [(ngModel)]="training" name="something" [attr.checked]="training ? true : null">{{shiftType}}
+            <input type="checkbox" autocomplete="off" [(ngModel)]="training" name="something">{{shiftType}}
           </label>
         </div>
       </div>
