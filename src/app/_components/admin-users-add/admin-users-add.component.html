@@ -1,46 +1,49 @@
-<div class="col-12 col-md-offset-3">
-  <h1>Add users</h1>
-  <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/admin/users" >Users admin</a></li>
-        <li class="breadcrumb-item active">Add users</li>
-      </ol>
-    </nav>
+<h1>Add users</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/admin/users" >Users admin</a></li>
+    <li class="breadcrumb-item active">Add users</li>
+  </ol>
+</nav>
 
-    <form (ngSubmit)="onSubmit()" #userForm="ngForm"  >
-      <div class="form-group">
-        <label for="firstNameInput">First name</label>
-        <input type="text" class="form-control" id="firstNameInput" 
-          [(ngModel)]="model.firstName" name="firstName" 
-          required >
-      </div>
-      <div class="form-group">
-        <label for="lastNameInput">Last name</label>
-        <input type="text" class="form-control" id="lastNameInput" 
-          [(ngModel)]="model.lastName" name="lastName"
-          required>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" 
-          [(ngModel)]="model.email" name="email"
-          required>
-        <small id="emailHelp" class="form-text text-muted"></small>
-      </div>
-      <div class="form-group">
-        <label for="telInput">Phone number</label>
-        <input id="telNo"  class="form-control" id="telInput" type="tel" 
-          [(ngModel)]="model.phoneNumber" name="phoneNumber"
-          required>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1"
-          [(ngModel)]="model.password" name="password"
-          required>
-          <small id="emailHelp" class="form-text text-muted">Leave blank if you want the password to be generated automatically</small>
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid">Submit</button>
-    </form>
-</div>
+<form (ngSubmit)="onSubmit()" #userForm="ngForm"  >
+  <div class="row">
+    <div class="col-sm form-group mb-4 ml-3">
+      <label for="firstNameInput">First name</label>
+      <input type="text" class="form-control" id="firstNameInput" 
+        [(ngModel)]="newUser.firstName" name="firstName" 
+        required pattern="[\w| ]{1,20}">
+    </div>
+    <div class="col-sm form-group mb-4 ml-3">
+      <label for="lastNameInput">Last name</label>
+      <input type="text" class="form-control" id="lastNameInput" 
+        [(ngModel)]="newUser.lastName" name="lastName"
+        required pattern="[\w| ]{1,20}">
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-6">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" 
+        [(ngModel)]="newUser.email" name="email"
+        required email>
+      <small class="form-text text-muted"></small>
+    </div>
+    <div class="form-group">
+      <label for="telInput">Phone number</label>
+      <input id="telNo"  class="form-control" id="telInput" type="tel" 
+        [(ngModel)]="newUser.phoneNumber" name="phoneNumber"
+        required pattern="[\d]{10}">
+      <small class="form-text text-muted">Ten digits. No dashes or spaces.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1"
+        [(ngModel)]="newUser.password" name="password"
+        required pattern="^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$">
+        <small class="form-text text-muted">Leave blank if you want the password to be generated automatically.</small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid">Submit</button>
+</form>

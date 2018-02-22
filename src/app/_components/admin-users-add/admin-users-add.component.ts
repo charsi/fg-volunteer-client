@@ -9,7 +9,7 @@ import { UserService } from '../../_services/user.service';
   styleUrls: ['./admin-users-add.component.css']
 })
 export class AdminUsersAddComponent implements OnInit {
-  model = new User();
+  newUser = new User();
   submitted = false;
   constructor() { }
 
@@ -17,7 +17,7 @@ export class AdminUsersAddComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.model);
+    console.log(this.newUser);
   }
 
 }
