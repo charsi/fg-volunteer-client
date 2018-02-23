@@ -21,10 +21,10 @@
           <label for="{{subtype}}SlotsInput">{{shiftType | titlecase}} : {{subtype}}</label>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <button class="btn btn-outline-secondary" type="button">-</button>
-              <button class="btn btn-outline-secondary" type="button">+</button>
+              <button class="btn btn-outline-secondary" type="button" (click)="decrement(inpt)">-</button>
+              <button class="btn btn-outline-secondary" type="button" (click)="increment(inpt)">+</button>
             </div>
-            <input type="number" class="form-control" placeholder="0" id="{{subtype}}SlotsInput"  min="0" max="10">
+            <input type="number" class="form-control" placeholder="0" id="{{subtype}}SlotsInput"  min="0" max="10" [name]="shiftType+subtype" ngModel #inpt="ngModel">
           </div>
         </div>
       </div>

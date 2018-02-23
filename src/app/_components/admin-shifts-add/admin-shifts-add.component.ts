@@ -29,4 +29,16 @@ submitted = false;
   
   onSubmit(){
   }
+
+  increment(input){
+    if (input.control.value <10){
+      input.control.setValue(parseInt( (input.control.value) || 0 ) +1 );
+    }
+  }
+
+  decrement(input){
+    if (input.control.value >0){
+      input.control.setValue(parseInt( (input.control.value) || 0 ) -1 );
+    }
+  }
 }
