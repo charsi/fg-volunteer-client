@@ -13,13 +13,13 @@
       <label for="firstNameInput">First name</label>
       <input type="text" class="form-control" id="firstNameInput" 
         [(ngModel)]="newUser.firstName" name="firstName" 
-        required pattern="[\w| ]{1,20}">
+        required pattern="[A-z]+ ?[A-z]+">
     </div>
     <div class="col-lg-4 col-md-5 form-group mb-4 ml-3">
       <label for="lastNameInput">Last name</label>
       <input type="text" class="form-control" id="lastNameInput" 
         [(ngModel)]="newUser.lastName" name="lastName"
-        required pattern="[\w| ]{1,20}">
+        required pattern="[A-z]+ ?[A-z]+">
     </div>
   </div>
   <div class="col-md-6 col-lg-6">
