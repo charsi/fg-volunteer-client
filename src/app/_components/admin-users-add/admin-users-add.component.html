@@ -31,10 +31,16 @@
       <small class="form-text text-muted"></small>
     </div>
     <div class="form-group">
+        
       <label for="telInput">Phone number</label>
-      <input id="telNo"  class="form-control" id="telInput" type="tel" 
-        [(ngModel)]="newUser.phoneNumber" name="phoneNumber"
-        required pattern="[\d]{10}">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">+1</span>
+        </div>
+        <input id="telNo"  class="form-control" id="telInput" type="tel" 
+          [(ngModel)]="newUser.phoneNumber" name="phoneNumber"
+          required pattern="[\d]{10}">
+      </div>
       <small class="form-text text-muted">Ten digits. No dashes or spaces.</small>
     </div>
     <div class="form-group">
